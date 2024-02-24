@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- socket.io library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js"
+        integrity="sha512-tE1z+95+lMCGwy+9PnKgUSIeHhvioC9lMlI7rLWU0Ps3XTdjRygLcy4mLuL0JAoK4TLdQEyP0yOl/9dMOqpH/Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- confetti library -->
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <title>Websocket Chat Room</title>
+</head>
+
+<body class="flex">
+
+    <div class="w-full h-screen flex">
+
+        <div class="m-auto">
+
+            <p class="text-3xl font-bold text-center">Emoji React❗️</p>
+            <div class="grid grid-cols-2 gap-4 mt-4">
+                <button value="😁" onclick="onPress(this)" class="btn btn-primary btn-lg">HAPPY 😁</button>
+                <button value="😭" onclick="onPress(this)" class="btn btn-primary btn-lg">SAD 😭</button>
+                <button value="🤬" onclick="onPress(this)" class="btn btn-primary btn-lg">ANGRY 🤬</button>
+                <button value="😕" onclick="onPress(this)" class="btn btn-primary btn-lg">CONFUSED 😕</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./script.js"></script>
+
+</html>
