@@ -3,7 +3,7 @@
 #### Directories 🪧
 
 - `./chat`
-- `./emoji`
+- `./emoji` 
 
 #### Some tools to help with debugging ✍🏼
 
