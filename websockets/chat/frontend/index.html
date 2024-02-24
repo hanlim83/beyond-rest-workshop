@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.6.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- socket.io library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js"
+        integrity="sha512-tE1z+95+lMCGwy+9PnKgUSIeHhvioC9lMlI7rLWU0Ps3XTdjRygLcy4mLuL0JAoK4TLdQEyP0yOl/9dMOqpH/Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Websocket Chat Room</title>
+</head>
+
+<body class="flex">
+
+    <div class="flex flex-col w-full lg:w-2/3 h-screen p-10 gap-4 m-auto">
+        <p class="text-4xl font-bold my-2">SMU .Hack 💬</p>
+        <input class="input input-text w-full input-bordered" placeholder="Your Name" id="chat-name"></input>
+        <div class="w-full h-full overflow-y-scroll border-2 rounded-lg border-gray-700">
+            <div id="chat-container">
+                <div id="last-pointer"></div>
+            </div>
+        </div>
+        <div class="w-full m-auto flex flex-row gap-4">
+            <input type="text" placeholder="Type here..." class="input input-bordered grow input-lg" id="chat-input" />
+            <button class="btn btn-square btn-primary btn-lg text-white" id="send-button" onclick="sendMessage()">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</body>
+<script src="./script.js"></script>
+
+</html>
