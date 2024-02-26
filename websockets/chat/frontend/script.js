@@ -6,10 +6,12 @@ let messages = [];
 
 socket.on("connect", (data) => {
   // TODO: console.log a message when client is connected to the websocket server
+  console.log("Connected to the server");
 });
 
 socket.on("disconnect", (data) => {
   // TODO: console.log a message when client is disconnected from the websocket server
+  console.log("Disconnected from the server");
 });
 
 //inserts a message you are sending into the frontend UI
@@ -42,7 +44,8 @@ socket.on("receiveMessage", (data) => {
   if (yourName !== name) {
     // TODO: use an existing function to insert the new incoming message
     // ===========================================
-
+    console.log("Received message from " + name + " | " + message);
+    insertIncomingMessage(name, message);
     // ===========================================
     // implements scrolling behaviour for chat
     document
@@ -75,12 +78,12 @@ function sendMessage() {
 
       // TODO: use socket.io to emit a message as the right event HINT: refer to the backend code to know what is the right event
       // ===========================================
-
+      socket.emit("chatMessage", messageObjectString);
       // ===========================================
 
       // TODO: use an existing function to insert the new incoming message
       // ===========================================
-
+      insertOwnMessage(message);
       // ===========================================
       //clears chat input box
       chatInput.value = "";

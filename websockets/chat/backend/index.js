@@ -23,12 +23,13 @@ const io = new Server(server, {
 io.on("connection", (socket) => {
   // TODO: Log a message to console that a user is connected
   // ===========================================
-
+  console.log("A user has connected");
   // ===========================================
   // Handle chat message
   socket.on("chatMessage", (message) => {
     // TODO: Use socket.io to emit the message to all connected clients
     // ===========================================
+    io.emit("receiveMessage", message);
     // ===========================================
   });
 
@@ -36,6 +37,7 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     // TODO: Log a message to console that a user is disconnected
     // ===========================================
+    console.log("A user has disconnected");
     // ===========================================
   });
 });
