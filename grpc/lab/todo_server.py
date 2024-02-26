@@ -31,11 +31,11 @@ class TodoService(todo_pb2_grpc.TodoServiceServicer):
             TaskResponse: A TaskResponse indicating the success of the operation.
         """
         # 1: Extract the task from the request
-
+        task = request.task
         # 2: Add the task to the list of tasks
-
+        self.tasks.append(task)
         # 3: Return a TaskResponse indicating with the message: 'Task "{task}" added successfully.'
-        raise NotImplementedError
+        return todo_pb2.TaskResponse(message=f'Task "{task}" added successfully.')
 
     def GetTasks(self, request, context):
         """
@@ -49,7 +49,7 @@ class TodoService(todo_pb2_grpc.TodoServiceServicer):
             TasksList: A TasksList containing the list of tasks.
         """
         # 1: Return a TasksList containing the list of tasks
-        raise NotImplementedError
+        return todo_pb2.TasksList(tasks=self.tasks)
 
     def RemoveAllTasks(self, request, context):
         """
@@ -63,10 +63,9 @@ class TodoService(todo_pb2_grpc.TodoServiceServicer):
             TaskResponse: A TaskResponse indicating the success of the operation.
         """
         # 1: Reinitialise tasks to be an empty list
-
+        self.tasks = []
         # 2: Return a TaskResponse indicating with the message:  'All tasks deleted'
-
-        raise NotImplementedError
+        return todo_pb2.TaskResponse(message='All tasks deleted')
     
     def AddMultipleTasks(self, request_iterator, context):
         """
@@ -83,9 +82,12 @@ class TodoService(todo_pb2_grpc.TodoServiceServicer):
         
         # 1: Iterate over the request_iterator to extract and add each task
         # HINT: to extract task from request_iterator child, call child.task   
-
+        for task_request in request_iterator:
+            task = task_request.task
+            self.tasks.append(task)
+            added_tasks.append(task)
         # 2: Return a TaskResponse indicating with the messsage 'Tasks {added_tasks} added successfully.'
-        raise NotImplementedError
+        return todo_pb2.TaskResponse(message=f'Tasks {added_tasks} added successfully.')
     
     def GetTaskHistory(self, request, context):
         """
@@ -102,8 +104,9 @@ class TodoService(todo_pb2_grpc.TodoServiceServicer):
         # HINT 1: You can use enumerate to get index and task simultaneously
         # HINT 2: Try using print, you will encounter an error, think of what other ways
         # python enables you to suspends the function's execution and returns a value to the caller 
-        raise NotImplementedError
-
+        # 2: Return a TaskResponse indicating with the message: 'Task history {task_history}'
+        task_history = [f'{index}: {task}' for index, task in enumerate(self.tasks)]
+        return todo_pb2.TaskResponse(message=f'Task history {task_history}')
 
 def serve():
     """

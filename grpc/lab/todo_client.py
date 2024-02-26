@@ -5,7 +5,7 @@ import todo_pb2_grpc
 def add_task(stub, task):
     # Send a request via stub to call AddTask to add current task, save variable as reponse
     # TODO
-    raise NotImplementedError
+    response = stub.AddTask(todo_pb2.TaskRequest(task=task))
     """
     DO NOT DELETE CODE BELOW
     """
@@ -14,7 +14,7 @@ def add_task(stub, task):
 def get_tasks(stub):
     # Send a request to the server via stub to get the tasks. Does not require any input
     # TODO
-    raise NotImplementedError
+    response = stub.GetTasks(todo_pb2.Empty())
     """
     DO NOT DELETE CODE BELOW
     """
@@ -28,7 +28,7 @@ def get_tasks(stub):
 def delete_all_tasks(stub):
     # Send a request to the server via stub to removal all tasks. Does not require any input
     # TODO
-    raise NotImplementedError
+    response = stub.DeleteAllTasks(todo_pb2.Empty())
     """
     DO NOT DELETE CODE BELOW
     """    
@@ -39,7 +39,7 @@ def add_multiple_tasks(stub, tasks):
     # HINT 1: List comprehension to get all your requests
     # HINT 2: Save as a single response variable 
     # TODO
-    raise NotImplementedError
+    response = stub.AddMultipleTasks((todo_pb2.TaskRequest(task=task) for task in tasks))
     """
     DO NOT DELETE CODE BELOW
     """    

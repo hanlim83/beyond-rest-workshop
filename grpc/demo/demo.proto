@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package demo;
+
+service Demo {
+    rpc GetServerResponse(Request) returns (Response);
+    rpc GetMultipleServerResponse(Request) returns (stream Response);
+    rpc GetServerResponseJSON(Request) returns (Response);
+}
+
+message Request{
+    string message = 1;
+}
+
+message Response{
+    string message = 1;
+}

@@ -4,24 +4,24 @@ package todo;
 
 service TodoService {
   // Unary RPC RemoveAllTasks has already been implemented for you
-  rpc RemoveAllTasks(Empty) returns (TaskResponse);
   
   // 1. Implement Unary RPC AddTask that sends a single TaskRequest from client and server returns single TaskResponse
   // TODO
-
+  rpc AddTask(TaskRequest) returns (TaskResponse);
   // 2. Implement Unary RPC GetTasks that does not require input from client and server returns single TaskList 
   // TODO
-
+  rpc GetTasks(Empty) returns (TasksList);
   // 3. Implement Unary RPC RemoveAllTasks that deletes all the task and return an empty Tasklist
   // TODO
-
+  rpc RemoveAllTasks(Empty) returns (TasksList);
   // 4. Implement Server streaming RPC GetTaskHistory that does not require input from client 
   // and server returns a stream of TaskResponse 
   // TODO
-
+  rpc GetTaskHistory(Empty) returns (stream TaskResponse);
   // 5. Implement Client streaming RPC AddMultipleTasks that sends a stream of TaskReqyest from client
   // and server returns a single TaskResponse 
-  // TODO        
+  // TODO
+  rpc AddMultipleTasks(stream TaskRequest) returns (TaskResponse);
 }
 
 message TaskRequest {
