@@ -3,7 +3,7 @@
 #### Directories 🪧
 
 - `./chat`
-- `./emoji` 
+- `./emoji`
 
 #### Some tools to help with debugging ✍🏼
 
@@ -17,11 +17,19 @@
 We're using a node.js server, and vanilla HTML/JS frontend for our practice applications. Here's a set of instructions to help with setting up:
 
 - Install [Node](https://nodejs.org/en/download)
-- Go to `root` and run the following command to start the **chat** application (change directory if you are building **emoji**):
+- Go to `websockets` and run the following command to start the **chat** application (change directory if you are building **emoji**):
 
+If you are a Windows User,
 ```
-cd ./chat/backend
-npm install
+cd ./chat
+run.bat
+```
+
+If you are a Linux/Mac user,
+```
+cd ./chat
+chmod +x ./run.sh
+./run.sh
 ```
 
 #### For Frontend 🏞️

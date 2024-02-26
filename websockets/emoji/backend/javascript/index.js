@@ -21,6 +21,13 @@ const io = new Server(server, {
 
 // When a client connects
 io.on("connection", (socket) => {
+  // TODO: Connect to a room
+  socket.on("joinRoom", (roomId) => {
+    // TODO: Use socket.io to join a room
+    // ===========================================
+    // ===========================================
+  });
+
   // TODO: Log a message to console that a user is connected
 
   // Handle chat message
