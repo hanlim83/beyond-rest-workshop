@@ -20,16 +20,24 @@ We're using a node.js server, and vanilla HTML/JS frontend for our practice appl
 - Go to `websockets` and run the following command to start the **chat** application (change directory if you are building **emoji**):
 
 If you are a Windows User,
+
 ```
 cd ./chat
 run.bat
 ```
 
 If you are a Linux/Mac user,
+
 ```
 cd ./chat
 chmod +x ./run.sh
-./run.sh
+```
+
+You can choose either `python` or `javascript`
+
+```
+./run.sh python
+./run.bat javascript
 ```
 
 #### For Frontend 🏞️
